@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+
+[[chip]]
+name = 'pca9535'
+binary = 'dist/chip.wasm'
