@@ -14,15 +14,15 @@ jobs:
       - name: Build chip
         uses: wokwi/wokwi-chip-clang-action@main
         with:
-          sources: "src/pca9535.chip.c"
+          sources: "src/tps65185.chip.c"
       - name: Copy chip.json
-        run: sudo cp pca9535.chip.json dist
+        run: sudo cp tps65185.chip.json dist
       - name: 'Upload Artifacts'
         uses: actions/upload-artifact@v4
         with:
           name: chip
           path: |
-            dist/pca9535.chip.json
+            dist/tps65185.chip.json
             dist/chip.wasm
 
   # The release job only runs when you push a tag starting with "v", e.g. v1.0.0 
