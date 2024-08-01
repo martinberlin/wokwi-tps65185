@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 #define I2C_BASE_ADDRESS 0x68
-
+#define NUM_ADDR_BITS  3
 #define CHIPSTATE_FROM(usr_dat) chip_state_t * chip = (chip_state_t*)usr_dat
 #define PRINTF_INPUTVALUE(msg, val)   printf("%s 0x%x (p0 0x%x, p1 0x%x)", msg, val, (val & 0xff), ((val & 0xff00) >> 8))
 
@@ -35,7 +35,10 @@ typedef struct {
   // io, so we can start/stop watching
   // depending on user settings writes
   pin_watch_config_t io_watch_config;
-
+  // input configuration and read value
+  uint16_t inputMask;
+  uint16_t inputValue;
+  uint16_t lastReadValue;
 } chip_state_t;
 
 
