@@ -13,6 +13,9 @@
 
 #define I2C_BASE_ADDRESS 0x68
 
+#define CHIPSTATE_FROM(usr_dat) chip_state_t * chip = (chip_state_t*)usr_dat
+#define PRINTF_INPUTVALUE(msg, val)   printf("%s 0x%x (p0 0x%x, p1 0x%x)", msg, val, (val & 0xff), ((val & 0xff00) >> 8))
+
 /* Chip state structure 
    Everything we care about and need access to in callbacks.
 */
