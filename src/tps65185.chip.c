@@ -22,6 +22,8 @@
 typedef struct {
   // address bit pins and device address
   uint8_t address;
+  pin_t addressBits[NUM_ADDR_BITS];
+
    // interrupt and "bidir" i/o pins
   pin_t nINT;
   pin_t PWR_GOOD;
@@ -260,10 +262,10 @@ void chip_init() {
   }
 
   
-  for (uint8_t i=0; i<NUM_GPIO; i++) {
+  /* for (uint8_t i=0; i<NUM_GPIO; i++) {
     chip->io[i] = pin_init(ioPinNames[i], INPUT_PULLUP); // on power up, high/input
     pin_watch(chip->io[i], &(chip->io_watch_config));
-  }
+  } */
   chip->inputMask = 0xffff;
 
   chip->address = read_address(chip);
