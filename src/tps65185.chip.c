@@ -13,6 +13,7 @@
 
 #define I2C_BASE_ADDRESS 0x68
 #define NUM_ADDR_BITS  3
+#define NUM_GPIO  3
 #define CHIPSTATE_FROM(usr_dat) chip_state_t * chip = (chip_state_t*)usr_dat
 #define PRINTF_INPUTVALUE(msg, val)   printf("%s 0x%x (p0 0x%x, p1 0x%x)", msg, val, (val & 0xff), ((val & 0xff00) >> 8))
 
@@ -32,7 +33,7 @@ typedef struct {
   i2c_dev_t i2c_dev;
   i2c_config_t i2c_config;
   uint8_t i2c_portcount;
-
+  pin_t io[NUM_GPIO];
   // our pin watch config for bidir 
   // io, so we can start/stop watching
   // depending on user settings writes
