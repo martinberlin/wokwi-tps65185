@@ -42,7 +42,7 @@ jobs:
         env:
           ZIP_VERSION: ${{ github.ref_name }}
       - name: Upload release
-        uses: martinberlin/release-action@v1.1
+        uses:  ncipollo/release-action
         with:
           artifacts: chip.zip
           token: ${{ secrets.GITHUB_TOKEN }}
