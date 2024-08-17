@@ -1,10 +1,15 @@
-# wokwi-pca9535
+# wokwi-tps65185
 
-This is my first try to make a Custom chip for Wokwi. 
+This is my 2nd try to make a Custom chip for Wokwi. 
 
 [Preview in the web simulator](https://wokwi.com/projects/401153784260252673)
 [Custom chips API documentation](https://docs.wokwi.com/chips-api/getting-started)
 
 Note: 
-Still not sure how it needs to be structured a custom chip to work when it's loaded from a repository.
-Tried to put the pca9535.* in src/ folder or in root, but I still get a: _Loading chip_ when it's initialized in VSCODE.
+In Order to add a Chip to your project, you need to download the **.wasm** file from the Github repository actions.
+As a second step, place this files in the **chips/** directory:
+
+   - chipname.wasm
+   - chipname.json
+
+Only then you can add it in your diagram (Schematic) otherwise it won't appear. What I still do not know how to do is to load it from a external repository.
